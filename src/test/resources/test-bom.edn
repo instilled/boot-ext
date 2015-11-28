@@ -1,0 +1,9 @@
+{org.clojure/clojure
+ {:version "1.7"
+  :exclusions nil
+  :allow-override false}
+
+ adzerk/boot-test
+ {:version "1.0.5"
+  :exclusions [org.clojure/clojure]
+  :scope "test"}}
