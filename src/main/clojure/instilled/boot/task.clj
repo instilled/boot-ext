@@ -8,7 +8,7 @@
   (:import
    [java.io File]))
 
-(core/deftask replace-gpg
+(core/deftask sign-with-keybase
   "Rebing `boot.gpg/sign-jar` to `instilled.boot.keybase/sign-jar`."
   []
   (alter-var-root #'gpg/sign-jar (fn [v r] r) keybase/sign-jar)

@@ -17,6 +17,6 @@
   (testing "signing works"
     (let [f (tmp-file "file1")
           encf (str f ".asc")]
-      (apply sign* (signing-args f {}))
+      (apply keybase (signing-args f {}))
       (is (.exists (io/file encf)))
       (is true))))

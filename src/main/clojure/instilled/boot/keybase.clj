@@ -24,7 +24,7 @@
   (let [file-enc (str file ".asc")]
     `["pgp" "sign" "-i" ~file "-o" ~file-enc]))
 
-(defn sign*
+(defn keybase
   "Shells out to (gpg-program) with the given arguments"
   [& args]
   (let [env (get-english-env)]
@@ -37,7 +37,7 @@
 (defn ^{:boot/from :technomancy/leiningen} sign
   "Create a detached signature and return the signature file name."
   [file opts]
-  (let [{:keys [err exit]} (apply sign (signing-args file opts))]
+  (let [{:keys [err exit]} (apply keybase (signing-args file opts))]
     (when-not (zero? exit)
       (util/fail (str "Could not sign " file "\n" err
                       "\n\nIf you don't expect people to need to verify the "
