@@ -6,6 +6,11 @@
    [boot.util          :as util])
   (:import [java.io StringReader File]))
 
+
+;; Copied from `boot.pod.gpg` and slightly modified.
+;; We should somehow extend boot to provide a pluggable
+;; artifact signing mechanism. ...I'll rise an issue.
+
 (defn signing-program
   "Lookup the gpg program to use, defaulting to 'keybase'"
   []
