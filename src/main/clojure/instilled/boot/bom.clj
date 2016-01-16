@@ -1,4 +1,4 @@
-(ns boot-ext.bom
+(ns instilled.boot.bom
   (:require
     [clj-jgit.porcelain :as git]
     [clojure.edn        :as edn]
@@ -45,4 +45,3 @@
 ;;   ['instilled/confucius#{3x54fu,master,tag-0.0.1}
 ;;    :src #{"src/main/clojure" "src/main/java"}
 ;;    :test #{"src/test/clojure" "src/test/java"}]])
-

@@ -1,6 +1,6 @@
 (def artifact
   {:project
-   'boot-ext/boot-ext
+   'instilled/boot-ext
 
    :version
    "0.0.1-SNAPSHOT"
@@ -11,6 +11,8 @@
    :url
    "https://github.com/instilled/boot-ext"})
 
+(def boot-version "2.5.5")
+
 (set-env!
   :source-paths
   #{"src/main/clojure"}
@@ -19,12 +21,21 @@
   #{"src/main/clojure"}
 
   :dependencies
-  '[[org.clojure/clojure                  "1.7.0"
+  `[[org.clojure/clojure                  "1.7.0"
      :scope "provided"]
-    [clj-jgit/clj-jgit                    "0.8.8"]
+
+    [clj-jgit/clj-jgit                    "0.8.8"
+     :scope "provided"]
+
+    [boot/core                            ~boot-version
+     :scope "provided"]
+    [boot/base                            ~boot-version
+     :scope "provided"]
+    [boot/pod                             ~boot-version
+     :scope "provided"]
 
     ;; test dependencies
-    [adzerk/boot-test                     "1.0.4"
+    [adzerk/boot-test                     "1.1.0"
      :scope "test"]])
 
 (task-options!
@@ -51,20 +62,15 @@
     #{"src/test/resources"})
   identity)
 
-(deftask testc
-  []
-  (comp
-    (dev)
-    (watch)
-    (speak)
-    (test)))
+(replace-task!
+ [t test] (fn [& xs] (comp (dev) (apply t xs))))
 
-(deftask tests
+(deftask test-repeatedly
   []
   (comp
-    (dev)
-    (speak)
-    (test)))
+   (watch)
+   (speak)
+   (test)))
 
 (deftask build
   []
@@ -73,9 +79,10 @@
   ;; into :resources-paths.
   (merge-env!
     :resource-paths
-    #{"src/main/cloujure"})
+    #{"src/main/clojure"})
   (comp
     (remove-ignored)
     (pom)
     (jar)
+    (target)
     (install)))

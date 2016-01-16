@@ -1,7 +1,7 @@
-(ns boot-ext.bom-test
+(ns instilled.boot.bom-test
   (:require
-    [boot-ext.bom :refer :all]
-    [clojure.test :refer :all]))
+   [instilled.boot.bom :refer :all]
+   [clojure.test       :refer :all]))
 
 (deftest test-bom
   (testing "resolves correctly"
