@@ -1,20 +1,18 @@
 # boot-ext [![Build Status][badge]][build]
 
-
-Extensions to boot.
-
-For now these include
+Extensions to boot. For now these include:
 
 * keybase based signing support (requires working keybase)
-* (experimental) bill of materialsm
+* (experimental) bill of materialms
+
+[![Clojars Project](https://img.shields.io/clojars/v/instilled/boot-ext.svg)](https://clojars.org/instilled/boot-ext)
 
 # Show me how
 
 ## Use keybase.io for signing
 
-(keybase)(https://keybase.io) must be installed for this to work!
-For OSx type `brew install keybase` and also install (GPGTools)(https://gpgtools.org). For other systems please
-check (here)(https://keybase.io/download).
+[keybase][kb] must be installed for this to work!
+For OSx type `brew install keybase` and also install [GPGTools][gpgt]. For other systems please check [here][kbi].
 
 ```clojure
 
@@ -37,7 +35,7 @@ This should pop-up the password propt for the signing key.
 
 # TODOs
 
-* currently only one identity supported
+* Add support for multiple identities
 
 # License
 
@@ -46,3 +44,7 @@ Copyright © 2016 Fabio Bernasconi
 Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version.
 
 [badge]: https://travis-ci.org/instilled/boot-ext.svg?branch=master
+[build]: https://travis-ci.org/instilled/boot-ext
+[gpgt]: https://gpgtools.org
+[kb]: https://keybase.io
+[kbi]: https://keybase.io/download

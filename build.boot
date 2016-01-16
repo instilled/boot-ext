@@ -86,3 +86,17 @@
     (jar)
     (target)
     (install)))
+
+(deftask deploy
+  []
+  (push
+   ;;:gpg-sign true
+   :repo "clojars"
+   ;;:ensure-branch "master"
+   ;;:ensure-clean true
+   ;;:ensure-release true
+   ;;:ensure-snapshot true
+   ;;:ensure-tag ""
+   ;;:ensure-version ""
+   ))
+
